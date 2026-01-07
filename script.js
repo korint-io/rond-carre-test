@@ -29,7 +29,7 @@ function displayQuestion(index) {
     let html = `
         <div class="question-card">
             <h2>Question ${question.id}</h2>
-            <p class="question-text">${question.question}${question.multiple ? ' **' : ''}</p>
+            <p class="question-text">${question.question}</p>
             ${question.multiple ? '<p class="multiple-info">(Plusieurs réponses possibles)</p>' : ''}
             <div class="options">
     `;
