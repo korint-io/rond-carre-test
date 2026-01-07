@@ -12,7 +12,8 @@ const resultsDiv = document.getElementById('results');
 const progressFill = document.getElementById('progress-fill');
 const currentQuestionSpan = document.getElementById('current-question');
 const totalQuestionsSpan = document.getElementById('total-questions');
-const restartBtn = document.getElementById('restart-btn');
+const showAllBtn = document.getElementById('show-all-btn');
+const allProfilesDiv = document.getElementById('all-profiles');
 
 // Initialize the quiz
 function init() {
@@ -131,18 +132,15 @@ submitBtn.addEventListener('click', () => {
     displayResults();
 });
 
-restartBtn.addEventListener('click', () => {
-    // Reset everything
-    currentQuestionIndex = 0;
-    answers = {};
-    totalScore = 0;
-    resultsDiv.style.display = 'none';
-    document.querySelector('.container > header').style.display = 'block';
-    document.getElementById('quiz-container').parentElement.querySelector('.navigation').style.display = 'flex';
-    document.getElementById('progress-bar').style.display = 'block';
-    document.getElementById('progress-text').style.display = 'block';
-    init();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+showAllBtn.addEventListener('click', () => {
+    if (allProfilesDiv.style.display === 'none') {
+        displayAllProfiles();
+        allProfilesDiv.style.display = 'block';
+        showAllBtn.textContent = 'Masquer les autres profils';
+    } else {
+        allProfilesDiv.style.display = 'none';
+        showAllBtn.textContent = 'Voir tous les profils';
+    }
 });
 
 // Calculate the total score
@@ -250,6 +248,81 @@ function displayResults() {
     document.getElementById('progress-text').style.display = 'none';
     resultsDiv.style.display = 'block';
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Display all personality profiles
+function displayAllProfiles() {
+    const profiles = [
+        {
+            range: 'Jusque 4',
+            title: 'VOUS ÊTES UN CARRÉ',
+            description: `Maniaque et psychorigide jusqu'à la névrose, vous n'aimez pas que les invités gardent
+                leurs chaussures chez vous (vous aimez peu les invités de manière générale), prévoyez l'ensemble
+                de vos repas de la semaine en avance, êtes probablement insomniaque, lavez régulièrement les
+                murs de votre appartement et nécessitez une thérapie.`,
+            class: 'result-carre-extreme'
+        },
+        {
+            range: 'De 5 à 14',
+            title: 'VOUS ÊTES UN CARRÉ',
+            description: `Tranche la plus rare de la population, correspondant à une personnalité rigide ayant su
+                s'adapter pour évoluer, vous êtes capable de flexibilité dans les situations extrêmes et faites fi des
+                traces de doigts laissés sur les vitres par vos invités. Vous posez les pieds sur votre table basse mais
+                votre paupière tressaute si vos amis en font de même (vous parvenez néanmoins à ne pas faire de
+                remarque).`,
+            class: 'result-carre'
+        },
+        {
+            range: 'De 14 à 24',
+            title: 'VOUS ÊTES UN CARRÉ LÉGER',
+            description: `Fiable et agréable, vous êtes un carré léger qui savez profiter de la vie. Vous êtes
+                capable de mettre au point des plans tout aussi bien que de les laisser tomber sans prendre de
+                xanax. Vous avez des poils de chat sur votre t-shirt et trébuchez de temps en temps, ce qui vous
+                donne l'air sympathique.`,
+            class: 'result-carre-leger'
+        },
+        {
+            range: 'De 25 à 34',
+            title: 'VOUS ÊTES UN ROND',
+            description: `En rond accommodant, vous connaissez vos failles et faites généralement en sorte
+                qu'elles n'impactent pas trop votre entourage. Vous êtes donc apprécié de vos pairs et menez une
+                existence paisible malgré quelques frayeurs récurrentes (« MES CLÉS DE VOITURE ! »).`,
+            class: 'result-rond'
+        },
+        {
+            range: 'De 35 à 44',
+            title: 'VOUS ÊTES UN ROND',
+            description: `Votre fonctionnement vous fait régulièrement perdre du temps et de l'argent et au
+                mieux faire rire, au pire agacer vos proches qui aimez vous-même parce que vous mettez de votre salon. En
+                un bon vivant et vous plaisez à dire que vous suivez le flow et l'aventure, attention néanmoins
+                votre score indique simplement que vous êtes quelqu'un qui toucher les éléments de la cuisine
+                avec vos doigts gras quand vous faites à manger.`,
+            class: 'result-rond-moyen'
+        },
+        {
+            range: 'Plus de 44',
+            title: 'VOUS ÊTES UN ROND EXTRÊME',
+            description: `Complètement décérébré, il est temps de vous prendre en main. Vous roulez
+                aléatoirement à travers le monde, vos amis vous aiment pour votre spontanéité mais vous donnent
+                rdv 1h30 à l'avance et vous craignent lorsque vous venez chez eux. Vous vivez dans la crasse
+                dignement ou avez fait l'acquisition d'un carré partageant le logis et assurant les tâches
+                quotidiennes.`,
+            class: 'result-rond-extreme'
+        }
+    ];
+
+    let html = '<h3 style="margin-top: 30px; text-align: center;">Tous les profils de personnalité</h3>';
+
+    profiles.forEach(profile => {
+        html += `
+            <div class="result-box ${profile.class}" style="margin-top: 20px;">
+                <h4>${profile.range} : ${profile.title}</h4>
+                <p>${profile.description}</p>
+            </div>
+        `;
+    });
+
+    allProfilesDiv.innerHTML = html;
 }
 
 // Initialize the quiz when the page loads
