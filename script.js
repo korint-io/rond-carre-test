@@ -50,7 +50,6 @@ function displayQuestion(index) {
                     onchange="handleAnswerChange(${question.id}, ${optionIndex}, ${question.multiple})"
                 >
                 <label for="${inputId}">
-                    <span class="option-value">${option.value >= 0 ? '+' : ''}${option.value}</span>
                     ${option.text}
                 </label>
             </div>

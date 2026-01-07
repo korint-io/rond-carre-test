@@ -157,19 +157,6 @@ h1 {
     flex: 1;
 }
 
-.option-value {
-    display: inline-block;
-    background: var(--primary-color);
-    color: white;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.85em;
-    font-weight: bold;
-    min-width: 35px;
-    text-align: center;
-    flex-shrink: 0;
-}
-
 /* Navigation Styles */
 .navigation {
     display: flex;
