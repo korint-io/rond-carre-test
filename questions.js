@@ -1,7 +1,7 @@
 const questions = [
     {
         id: 1,
-        question: "Vous oubliez ou perdez vos affaires (carte bleue, navigo, clés, lunettes de soleil...)**",
+        question: "Vous oubliez ou perdez vos affaires (carte bleue, navigo, clés, lunettes de soleil...)",
         multiple: true,
         options: [
             { value: 0, text: "Jamais" },
@@ -13,7 +13,7 @@ const questions = [
     },
     {
         id: 2,
-        question: "Pour laver la vaisselle et les surfaces vous avez**",
+        question: "Pour laver la vaisselle et les surfaces vous avez",
         multiple: true,
         options: [
             { value: 2, text: "Une seule éponge, que vous changez régulièrement" },
@@ -55,7 +55,7 @@ const questions = [
             { value: 2, text: "Vous la ferez demain matin, vous la rincez un peu et allez vous coucher" },
             { value: 1, text: "Vous faites la vaisselle avant de dormir quoi qu'il arrive" },
             { value: 3, text: "Vous la laissez dans l'évier sans la rincer et la ferez demain" },
-            { value: 4, text: "Vous la laisser dans l'évier sans la rincer, potentiellement plusieurs jours" },
+            { value: 4, text: "Vous la laissez dans l'évier sans la rincer, potentiellement plusieurs jours" },
             { value: 0, text: "Vous faites la vaisselle quoi qu'il arrive, vous la séchez et vous lavez l'égouttoir pour qu'il brille" }
         ]
     },
@@ -65,9 +65,9 @@ const questions = [
         multiple: false,
         options: [
             { value: -1, text: "Oui, un agenda papier alors que vous disposez d'un téléphone avec agenda électronique" },
-            { value: 0, text: "Oui, votre agenda (papier ou téléphone que vous tenez à jour et consultez régulièrement, même si vous connaissez votre emploi du temps par cœur de toute façon" },
+            { value: 0, text: "Oui, votre agenda (papier ou téléphone) que vous tenez à jour et consultez régulièrement, même si vous connaissez votre emploi du temps par cœur de toute façon" },
             { value: 1, text: "Oui, vous utilisez un agenda mais oubliez de le remplir régulièrement" },
-            { value: 2, text: "Vous disposez d'un agenda mais oubliez de le remplir régulièrement par cœur et pouvez faire des erreurs si vous oubliez de le consulter (erreur que vous rectifiez)" },
+            { value: 2, text: "Vous disposez d'un agenda mais oubliez de le remplir régulièrement" },
             { value: 3, text: "Non, vous ne notez aucun rdv s'il ne s'agit pas de rdv important" }
         ]
     },
