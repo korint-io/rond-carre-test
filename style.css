@@ -128,33 +128,25 @@ h1 {
 
 .option input[type="radio"],
 .option input[type="checkbox"] {
-    margin-right: 12px;
+    position: absolute;
+    opacity: 0;
     cursor: pointer;
-    width: 18px;
-    height: 18px;
-}
-
-.option input[type="radio"]:checked,
-.option input[type="checkbox"]:checked {
-    accent-color: var(--primary-color);
-}
-
-.option input[type="radio"]:checked ~ label,
-.option input[type="checkbox"]:checked ~ label {
-    font-weight: 600;
+    height: 0;
+    width: 0;
 }
 
 .option:has(input:checked) {
     background: #d4e9f7;
     border-color: var(--primary-color);
+    font-weight: 600;
 }
 
 .option label {
     cursor: pointer;
     display: flex;
     align-items: flex-start;
-    gap: 10px;
-    flex: 1;
+    width: 100%;
+    padding: 0;
 }
 
 /* Navigation Styles */

@@ -88,6 +88,15 @@ function handleAnswerChange(questionId, optionIndex, isMultiple) {
         // For single choice questions
         answers[questionId] = [optionIndex];
     }
+
+    // Update button states after answer changes
+    updateProgress();
+}
+
+// Check if current question is answered
+function isCurrentQuestionAnswered() {
+    const currentQuestion = questions[currentQuestionIndex];
+    return answers[currentQuestion.id] && answers[currentQuestion.id].length > 0;
 }
 
 // Update progress bar
@@ -99,12 +108,17 @@ function updateProgress() {
     // Update button states
     prevBtn.disabled = currentQuestionIndex === 0;
 
+    // Check if current question is answered
+    const isAnswered = isCurrentQuestionAnswered();
+
     if (currentQuestionIndex === questions.length - 1) {
         nextBtn.style.display = 'none';
         submitBtn.style.display = 'inline-block';
+        submitBtn.disabled = !isAnswered;
     } else {
         nextBtn.style.display = 'inline-block';
         submitBtn.style.display = 'none';
+        nextBtn.disabled = !isAnswered;
     }
 }
 
@@ -119,6 +133,11 @@ prevBtn.addEventListener('click', () => {
 });
 
 nextBtn.addEventListener('click', () => {
+    if (!isCurrentQuestionAnswered()) {
+        alert('Veuillez répondre à la question avant de continuer.');
+        return;
+    }
+
     if (currentQuestionIndex < questions.length - 1) {
         currentQuestionIndex++;
         displayQuestion(currentQuestionIndex);
@@ -128,6 +147,11 @@ nextBtn.addEventListener('click', () => {
 });
 
 submitBtn.addEventListener('click', () => {
+    if (!isCurrentQuestionAnswered()) {
+        alert('Veuillez répondre à la question avant de voir les résultats.');
+        return;
+    }
+
     calculateScore();
     displayResults();
 });

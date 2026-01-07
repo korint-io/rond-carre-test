@@ -200,7 +200,10 @@ const questions = [
         options: [
             { value: 4, text: "Moins d'une fois par mois" },
             { value: 3, text: "Une fois par mois" },
-            { value: 2, text: "Deux fois par mois" }
+            { value: 2, text: "Deux fois par mois" },
+            { value: 1, text: "Une fois par semaine" },
+            { value: -1, text: "Plusieurs fois par semaine" },
+            { value: 0, text: "Plusieurs fois par semaine mais j'ai un animal" }
         ]
     },
     {
