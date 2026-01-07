@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de personnalité rond-carré</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Test de personnalité rond-carré</h1>
+            <p class="subtitle">Êtes-vous un rond ou un carré ? Êtes-vous dans la norme ou pathologiquement écervelé ou maniaco­rigide, et un poids pour votre entourage ?</p>
+            <p class="instructions">
+                <strong>NB :</strong> Entourez pour chaque question le ou les chiffres correspondant à votre fonctionnement,
+                additionnez-les et reportez-vous aux résultats en fin de document. Des points négatifs peuvent être
+                attribués, il faut les retirer du score total. Les questions comportant plusieurs réponses possibles sont
+                indiquées par deux astérisques.
+            </p>
+        </header>
+
+        <div id="quiz-container"></div>
+
+        <div class="navigation">
+            <button id="prev-btn" class="btn" disabled>Précédent</button>
+            <button id="next-btn" class="btn">Suivant</button>
+            <button id="submit-btn" class="btn btn-primary" style="display: none;">Voir les résultats</button>
+        </div>
+
+        <div id="progress-bar">
+            <div id="progress-fill"></div>
+        </div>
+        <p id="progress-text">Question <span id="current-question">1</span> sur <span id="total-questions">22</span></p>
+
+        <div id="results" style="display: none;">
+            <h2>Vos résultats</h2>
+            <div id="score-display"></div>
+            <div id="interpretation"></div>
+            <button id="restart-btn" class="btn">Recommencer le test</button>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
